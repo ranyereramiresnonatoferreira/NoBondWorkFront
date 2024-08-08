@@ -1,0 +1,26 @@
+.card-container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 90vh; /* Faz o container ter a altura total da tela */
+    background-color: white;
+  }
+
+  input{
+    width: 100%;
+  }
+
+  img{
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+  }
+  
+:host ::ng-deep {
+    .p-card{
+        background-color: #87cefa;
+        border-radius: 15px;
+    }
+}
+
+
+  
