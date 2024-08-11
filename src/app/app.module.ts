@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MenubarModule } from 'primeng/menubar';
     AppRoutingModule,
     CardModule,
     ButtonModule,
-    MenubarModule
+    MenubarModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration()

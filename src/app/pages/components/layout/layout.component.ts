@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { SessionStorageService } from '../../../services/session-storage.service';
 
 @Component({
   selector: 'app-layout',
@@ -7,8 +8,20 @@ import { MenuItem } from 'primeng/api';
   styleUrl: './layout.component.scss'
 })
 export class LayoutComponent {
+  tipo:string;
   items: MenuItem[] | undefined;
+
+  constructor(private sessionStorageService:SessionStorageService){
+
+  }
   ngOnInit() {
+
+    this.tipo = this.sessionStorageService.getItem('tipo');
+
+    if(this.tipo == '1'){
+
+    }
+
     this.items = [
         {
             label: 'Home',
