@@ -8,6 +8,9 @@ import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
 import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from 'primeng/table';
+import { DialogModule } from 'primeng/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { TableModule } from 'primeng/table';
     ButtonModule,
     MenubarModule,
     HttpClientModule,
-    TableModule
+    TableModule,
+    DialogModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration()

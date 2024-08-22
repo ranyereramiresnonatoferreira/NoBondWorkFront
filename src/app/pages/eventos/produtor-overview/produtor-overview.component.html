@@ -1,5 +1,5 @@
 <app-layout></app-layout>
-<p-button label="Adicionar" />
+<p-button label="Adicionar" (onClick)="add()"/>
 <p-table [value]="eventos" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header">
         <tr>

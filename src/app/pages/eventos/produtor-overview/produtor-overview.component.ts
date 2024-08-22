@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventosService } from '../../../services/eventos.service';
 import { eventoModel } from '../../../models/eventoModel';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-produtor-overview',
@@ -8,8 +9,10 @@ import { eventoModel } from '../../../models/eventoModel';
   styleUrl: './produtor-overview.component.scss'
 })
 export class ProdutorOverviewComponent implements OnInit{
-  eventos:eventoModel[]
-  constructor(private eventoService:EventosService){
+  eventos:eventoModel[];
+  constructor(private eventoService:EventosService,
+    private router: Router
+  ){
   
   }
 
@@ -31,5 +34,9 @@ export class ProdutorOverviewComponent implements OnInit{
         window.location.reload()
       }
     })
+  }
+
+  add(){
+    this.router.navigate(['/eventos/add']);
   }
 }

@@ -7,19 +7,23 @@ import { ProdutorDetailComponent } from './produtor-detail/produtor-detail.compo
 import { LayoutModule } from '../components/layout/layout.module';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { AddComponent } from './add/add.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     ProdutorOverviewComponent,
     ProdutorDetailComponent,
+    AddComponent,
   ],
   imports: [
     CommonModule,
     EventosRoutingModule,
     LayoutModule,
     TableModule,
-    ButtonModule
+    ButtonModule,
+    ReactiveFormsModule
   ]
 })
 export class EventosModule { }
