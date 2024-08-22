@@ -7,6 +7,7 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
 import { HttpClientModule } from '@angular/common/http';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     CardModule,
     ButtonModule,
     MenubarModule,
-    HttpClientModule
+    HttpClientModule,
+    TableModule
   ],
   providers: [
     provideClientHydration()

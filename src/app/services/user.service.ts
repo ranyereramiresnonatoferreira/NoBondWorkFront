@@ -8,7 +8,6 @@ import { AuthResponseModel } from '../models/authResponseModel';
   providedIn: 'root'
 })
 export class UserService {
-
   constructor(private httpCliente:HttpClient) { }
 
   login(loginData:loginModel){

@@ -40,6 +40,7 @@ export class LoginComponent {
         const decoded = jwtDecode<JwtPayload>(data.token);
         this.sessionStorageService.setItem('tipo', decoded.tipo.toString());
         this.sessionStorageService.setItem('id', decoded.id.toString());
+        this.sessionStorageService.setItem('token', data.token);
         this.router.navigate(['/home/1']);
       },
       error: (e) => {
