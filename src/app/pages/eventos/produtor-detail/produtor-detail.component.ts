@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { EventosService } from '../../../services/eventos.service';
 import { eventoModel } from '../../../models/eventoModel';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,8 +17,9 @@ export class ProdutorDetailComponent implements OnInit{
   evento: eventoModel
   constructor(private route: ActivatedRoute,
               private fb:FormBuilder,
-              private eventoService:EventosService
-  ){
+              private eventoService:EventosService,
+              private router:Router
+    ){
     this.form = this.fb.group({
       id:[null],
       dataHora: [null],
@@ -40,7 +42,7 @@ export class ProdutorDetailComponent implements OnInit{
     this.eventoService.getById(Number(this.id)).subscribe({
       next: (data) => {
         this.evento = data;
-        const date = this.evento.dataHora;
+        const date = new Date(this.evento.dataHora); 
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, '0');
         const day = String(date.getDate()).padStart(2, '0');
@@ -65,6 +67,25 @@ export class ProdutorDetailComponent implements OnInit{
 }
 
 update(){
+  let evento = {
+    id:this.evento.id,
+    idResponsavel: Number(this.evento.idResponsavel),
+    dataHora:this.form.get('dataHora').value,
+    nomeEvento:this.form.get('nomeEvento').value,
+    descricaoEvento:this.form.get('descricaoEvento').value,
+    cepEvento:this.form.get('cepEvento').value,
+    ruaEvento:this.form.get('ruaEvento').value,
+    numeroEvento:this.form.get('numeroEvento').value,
+    bairroEvento:this.form.get('bairroEvento').value,
+    cidadeEvento:this.form.get('cidadeEvento').value,
+    ufEvento:this.form.get('ufEvento').value,
+    complementoEvento:this.form.get('complementoEvento').value
+    }
 
+    this.eventoService.update(evento).subscribe({
+      next: (data) =>{
+        this.router.navigate(['/eventos/produtor-overview']);
+      }
+    })
 }
 }
