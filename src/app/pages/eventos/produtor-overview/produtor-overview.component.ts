@@ -39,4 +39,8 @@ export class ProdutorOverviewComponent implements OnInit{
   add(){
     this.router.navigate(['/eventos/add']);
   }
+
+  update(id:number){
+    this.router.navigate(['/eventos/produtor-detail/' + id.toString()]);
+  }
 }

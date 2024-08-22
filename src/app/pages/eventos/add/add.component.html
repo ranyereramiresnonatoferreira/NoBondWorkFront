@@ -1,4 +1,88 @@
 <app-layout></app-layout>
+<form [formGroup]="form">
 <div class="container">
-    
+    <div class="row">
+        <div class="col-sm">
+            <label for="dataHora" class="form-label">Data Hora</label>
+            <input type="datetime-local" class="form-control" id="dataHora" formControlName="dataHora">
+        </div>
+        <div class="col-sm">
+            <label for="nomeEvento" class="form-label">Nome Evento</label>
+            <input type="text" class="form-control" id="nomeEvento" formControlName="nomeEvento">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <label for="descricaoEvento" class="form-label">Descrição</label>
+            <textarea class="form-control" id="descricaoEvento" rows="3" formControlName="descricaoEvento"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <label for="cep" class="form-label">Cep</label>
+            <input type="number" class="form-control" id="cep" formControlName="cepEvento">
+        </div>
+        <div class="col-sm">
+            <label for="rua" class="form-label">Rua</label>
+            <input type="text" class="form-control" id="rua" formControlName="ruaEvento">
+        </div>
+        <div class="col-sm">
+            <label for="numero" class="form-label">Número</label>
+            <input type="number" class="form-control" id="numero" formControlName="numeroEvento">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <label for="bairro" class="form-label">Bairro</label>
+            <input type="text" class="form-control" id="bairro" formControlName="bairroEvento">
+        </div>
+        <div class="col-sm">
+            <label for="cidade" class="form-label">Cidade</label>
+            <input type="text" class="form-control" id="cidade" formControlName="cidadeEvento">
+        </div>
+        <div class="col-sm">
+            <label for="uf">UF</label>
+            <select id="uf" class="form-control" formControlName="ufEvento">
+              <option value="AC">AC</option>
+              <option value="AL">AL</option>
+              <option value="AP">AP</option>
+              <option value="AM">AM</option>
+              <option value="BA">BA</option>
+              <option value="CE">CE</option>
+              <option value="DF">DF</option>
+              <option value="ES">ES</option>
+              <option value="GO">GO</option>
+              <option value="MA">MA</option>
+              <option value="MT">MT</option>
+              <option value="MS">MS</option>
+              <option value="MG">MG</option>
+              <option value="PA">PA</option>
+              <option value="PB">PB</option>
+              <option value="PR">PR</option>
+              <option value="PE">PE</option>
+              <option value="PI">PI</option>
+              <option value="RJ">RJ</option>
+              <option value="RN">RN</option>
+              <option value="RS">RS</option>
+              <option value="RO">RO</option>
+              <option value="RR">RR</option>
+              <option value="SC">SC</option>
+              <option value="SP">SP</option>
+              <option value="SE">SE</option>
+              <option value="TO">TO</option>
+            </select>
+        </div>
+        <div class="col-sm">
+            <label for="complemento" class="form-label">Complemento</label>
+            <input type="text" class="form-control" id="complemento" formControlName="complementoEvento">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm"></div>
+        <div class="col-sm"></div>
+        <div class="col-sm" style="margin-top: 2%;"><p-button label="Adicionar" (onClick)="add()"/></div>
+        <div class="col-sm"></div>
+        <div class="col-sm"></div>
+    </div>
 </div>
+</form>

@@ -10,7 +10,7 @@ const routes: Routes = [
     component: ProdutorOverviewComponent,
   },
   {
-    path: "produtor-detail",
+    path: "produtor-detail/:id",
     component: ProdutorDetailComponent,
   },
   {

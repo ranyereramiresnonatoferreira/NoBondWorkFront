@@ -20,7 +20,7 @@
     </ng-template>
     <ng-template pTemplate="body" let-evento>
         <tr>
-            <td><p-button icon="pi pi-pencil"/></td>
+            <td><p-button icon="pi pi-pencil" (onClick)="update(evento.id)"/></td>
             <td><p-button icon="pi pi-times" severity="danger" (onClick)="deleteEvento(evento.id)"/></td>
             <td>{{evento.id}}</td>
             <td>{{ evento.dataHora | date:'dd/MM/yyyy HH:mm:ss' }}</td>
