@@ -1,0 +1,35 @@
+<app-layout></app-layout>
+<p-table [value]="eventos" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Criar candidatura</th>
+            <th>Código</th>
+            <th>Data Hora</th>
+            <th>Nome</th>
+            <th>Descricao</th>
+            <th>Cep</th>
+            <th>Rua</th>
+            <th>Número</th>
+            <th>Bairro</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th>Complemento</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-evento>
+        <tr>
+            <td><p-button icon="pi pi-pencil" (onClick)="addSolicitacao(evento.id)"/></td>
+            <td>{{evento.id}}</td>
+            <td>{{ evento.dataHora | date:'dd/MM/yyyy HH:mm:ss' }}</td>
+            <td>{{ evento.nomeEvento }}</td>
+            <td>{{ evento.descricaoEvento }}</td>
+            <td>{{ evento.cepEvento }}</td>
+            <td>{{ evento.ruaEvento }}</td>
+            <td>{{ evento.numeroEvento }}</td>
+            <td>{{ evento.bairroEvento }}</td>
+            <td>{{ evento.cidadeEvento }}</td>
+            <td>{{ evento.ufEvento }}</td>
+            <td>{{ evento.complementoEvento }}</td>
+        </tr>
+    </ng-template>
+</p-table>

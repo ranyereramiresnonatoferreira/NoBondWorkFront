@@ -67,4 +67,15 @@ export class EventosService {
     };
     return this.httpClient.get<eventoModel[]>(`http://localhost:3000/api/eventos`, httpOptions).pipe(retry(0));
   }
+
+  getAll() {
+    const token = this.sessionStorageService.getItem('token');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      }),
+    };
+    return this.httpClient.get<eventoModel[]>(`http://localhost:3000/api/eventos/all`, httpOptions).pipe(retry(0));
+  }
 }

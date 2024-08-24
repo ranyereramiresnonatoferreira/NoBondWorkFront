@@ -9,6 +9,8 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { AddComponent } from './add/add.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FreelancerOverviewComponent } from './freelancer-overview/freelancer-overview.component';
+import { SolicitacaoDetailComponent } from './solicitacao-detail/solicitacao-detail.component';
 
 
 @NgModule({
@@ -16,6 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProdutorOverviewComponent,
     ProdutorDetailComponent,
     AddComponent,
+    FreelancerOverviewComponent,
+    SolicitacaoDetailComponent,
   ],
   imports: [
     CommonModule,

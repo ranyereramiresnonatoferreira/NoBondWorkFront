@@ -24,5 +24,11 @@ export class LayoutComponent {
           ];
     }
 
+    if(this.tipo == '2'){
+      this.items = [
+        { label: "Eventos", icon: "pi pi-home", routerLink: "/eventos/freelancer-overview" },
+      ];
+    }
+
 }
 }
