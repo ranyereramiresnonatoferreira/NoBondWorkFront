@@ -96,3 +96,57 @@
     </div>
 </div>
 </form>
+
+<div class="container">
+    <h1>Aceitos</h1>
+    <p-table [value]="solicitacoesAceitas" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Excluir</th>
+                <th>Código</th>
+                <th>Código Evento</th>
+                <th>Valor Oferecido</th>
+                <th>Mensagem</th>
+                <th>Status</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-solicitacao>
+            <tr>
+                <td><p-button icon="pi pi-times" severity="danger" (onClick)="deleteSolicitacao(solicitacao)"/></td>
+                <td>{{ solicitacao.id }}</td>
+                <td>{{ solicitacao.idEvento }}</td>
+                <td>{{ solicitacao.valorOferecido }}</td>
+                <td>{{ solicitacao.mensagem }}</td>
+                <td>{{ alterLabel(solicitacao.idStatus) }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<div class="container">
+    <h1>Pendentes</h1>
+    <p-table [value]="soliciracoesPendentes" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Aceitar</th>
+                <th>Excluir</th>
+                <th>Código</th>
+                <th>Código Evento</th>
+                <th>Valor Oferecido</th>
+                <th>Mensagem</th>
+                <th>Status</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-solicitacao>
+            <tr>
+                <td><p-button icon="pi pi-check" severity="success" (onClick)="aceitarSolicitacao(solicitacao)"/></td>
+                <td><p-button icon="pi pi-times" severity="danger" (onClick)="deleteSolicitacao(solicitacao)"/></td>
+                <td>{{ solicitacao.id }}</td>
+                <td>{{ solicitacao.idEvento }}</td>
+                <td>{{ solicitacao.valorOferecido }}</td>
+                <td>{{ solicitacao.mensagem }}</td>
+                <td>{{ alterLabel(solicitacao.idStatus) }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

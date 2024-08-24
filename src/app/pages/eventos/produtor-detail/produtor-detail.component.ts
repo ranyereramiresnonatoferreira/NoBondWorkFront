@@ -4,6 +4,8 @@ import { EventosService } from '../../../services/eventos.service';
 import { eventoModel } from '../../../models/eventoModel';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SolicitacaoService } from '../../../services/solicitacao.service';
+import { solicitacaoModel } from '../../../models/solicitacaoModel';
 
 
 @Component({
@@ -15,10 +17,14 @@ export class ProdutorDetailComponent implements OnInit{
   form:FormGroup
   id: string | null = null;
   evento: eventoModel
+  solicitacoes:solicitacaoModel[]
+  solicitacoesAceitas:solicitacaoModel[]
+  soliciracoesPendentes:solicitacaoModel[]
   constructor(private route: ActivatedRoute,
               private fb:FormBuilder,
               private eventoService:EventosService,
-              private router:Router
+              private router:Router,
+              private solicitacaoService:SolicitacaoService
     ){
     this.form = this.fb.group({
       id:[null],
@@ -48,7 +54,6 @@ export class ProdutorDetailComponent implements OnInit{
         const day = String(date.getDate()).padStart(2, '0');
         const hours = String(date.getHours()).padStart(2, '0');
         const minutes = String(date.getMinutes()).padStart(2, '0');
-        console.log(this.evento)
         this.form.get('id').setValue(this.evento.id)
         this.form.get('dataHora').setValue(`${year}-${month}-${day}T${hours}:${minutes}`)
         this.form.get('nomeEvento').setValue(this.evento.nomeEvento)
@@ -61,6 +66,14 @@ export class ProdutorDetailComponent implements OnInit{
         this.form.get('ufEvento').setValue(this.evento.ufEvento)
         this.form.get('complementoEvento').setValue(this.evento.complementoEvento)
         this.form.get('idResponsavel').setValue(this.evento.idResponsavel)
+
+        this.solicitacaoService.getByIdEvento(this.evento.id).subscribe({
+          next: (data) => {
+            this.solicitacoes = data;
+            this.soliciracoesPendentes = this.solicitacoes.filter(x => x.idStatus == 1)
+            this.solicitacoesAceitas = this.solicitacoes.filter(x => x.idStatus == 2)
+          }
+        })
       }
     })
   });
@@ -87,5 +100,34 @@ update(){
         this.router.navigate(['/eventos/produtor-overview']);
       }
     })
+}
+
+ deleteSolicitacao(solicitacao:solicitacaoModel){
+  solicitacao.idStatus = 3;
+  this.solicitacaoService.update(solicitacao).subscribe({
+    next: (data) => {
+      window.location.reload()
+    }
+  })
+  }
+
+alterLabel(id:number){
+  if(id == 1){
+    return "Em análise"
+  }else if(id == 2){
+    return "Aceito"
+  }
+  else{
+    return "Recusado"
+  }
+}
+
+aceitarSolicitacao(solicitacao:solicitacaoModel){
+  solicitacao.idStatus = 2;
+  this.solicitacaoService.update(solicitacao).subscribe({
+    next: (data) => {
+      window.location.reload()
+    }
+  })
 }
 }
