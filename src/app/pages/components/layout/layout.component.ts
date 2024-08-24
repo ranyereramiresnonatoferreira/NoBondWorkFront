@@ -21,6 +21,7 @@ export class LayoutComponent {
     if(this.tipo == '1'){
         this.items = [
             { label: "Eventos", icon: "pi pi-home", routerLink: "/eventos/produtor-overview" },
+            { label: "Sair", icon: "pi pi-home", routerLink: "/login" },
           ];
     }
 
@@ -28,6 +29,7 @@ export class LayoutComponent {
       this.items = [
         { label: "Eventos", icon: "pi pi-home", routerLink: "/eventos/freelancer-overview" },
         { label: "Solicitações", icon: "pi pi-home", routerLink: "/eventos/solicitacao-overview" },
+        { label: "Sair", icon: "pi pi-home", routerLink: "/login" },
       ];
     }
 
