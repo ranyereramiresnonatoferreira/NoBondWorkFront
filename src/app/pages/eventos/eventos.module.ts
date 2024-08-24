@@ -11,6 +11,7 @@ import { AddComponent } from './add/add.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FreelancerOverviewComponent } from './freelancer-overview/freelancer-overview.component';
 import { SolicitacaoDetailComponent } from './solicitacao-detail/solicitacao-detail.component';
+import { SolicitacaoOverviewComponent } from './solicitacao-overview/solicitacao-overview.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { SolicitacaoDetailComponent } from './solicitacao-detail/solicitacao-det
     AddComponent,
     FreelancerOverviewComponent,
     SolicitacaoDetailComponent,
+    SolicitacaoOverviewComponent,
   ],
   imports: [
     CommonModule,

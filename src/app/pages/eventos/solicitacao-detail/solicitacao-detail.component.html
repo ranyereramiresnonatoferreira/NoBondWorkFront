@@ -1,5 +1,6 @@
 <app-layout></app-layout>
 <div class="container">
+    <form [formGroup]="form">
 <div class="row">
 <div class="col-sm">
     <div class="form-group">
@@ -10,7 +11,8 @@
           class="form-control" 
           placeholder="Digite o valor" 
           step="0.01" 
-          min="0">
+          min="0"
+          formControlName="valorOferecido">
       </div>
 </div>
 <div class="col-sm">
@@ -21,11 +23,13 @@
           class="form-control" 
           placeholder="Digite a descrição" 
           rows="18"
-          required></textarea>
+          required
+          formControlName="mensagem"></textarea>
       </div>
 </div>
 <div class="col-sm">
     <p-button label="Adicionar" (onClick)="add()"/>
 </div>
 </div>
+</form>
 </div>

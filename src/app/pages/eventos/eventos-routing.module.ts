@@ -5,6 +5,7 @@ import { ProdutorDetailComponent } from './produtor-detail/produtor-detail.compo
 import { AddComponent } from './add/add.component';
 import { FreelancerOverviewComponent } from './freelancer-overview/freelancer-overview.component';
 import { SolicitacaoDetailComponent } from './solicitacao-detail/solicitacao-detail.component';
+import { SolicitacaoOverviewComponent } from './solicitacao-overview/solicitacao-overview.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: "solicitacao-detail/:id",
     component: SolicitacaoDetailComponent,
+  },
+  {
+    path: "solicitacao-overview",
+    component: SolicitacaoOverviewComponent,
   },
 ];
 

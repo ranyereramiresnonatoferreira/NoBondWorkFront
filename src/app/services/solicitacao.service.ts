@@ -23,4 +23,26 @@ export class SolicitacaoService {
     };
     return this.httpClient.post('http://localhost:3000/api/solicitacoes',solicitacao, httpOptions).pipe(retry(0));
   }
+
+  getByIdResponsavel(){
+    const token =  this.sessionStorageService.getItem('token');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      }),
+    };
+    return this.httpClient.get<solicitacaoModel[]>('http://localhost:3000/api/solicitacoes/usuario', httpOptions).pipe(retry(0));
+  }
+
+  delete(id:number){
+    const token =  this.sessionStorageService.getItem('token');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      }),
+    };
+    return this.httpClient.delete('http://localhost:3000/api/solicitacoes/' + id , httpOptions).pipe(retry(0));
+  }
 }
